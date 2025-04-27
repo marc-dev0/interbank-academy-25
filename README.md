@@ -1,66 +1,39 @@
-# Reto Técnico: Procesamiento de Transacciones Bancarias (CLI)
+# Procesador de Transacciones Bancarias
 
-## Objetivo:
+## Introducción
 
-Desarrolla una aplicación de línea de comandos (CLI) que procese un archivo CSV con transacciones bancarias y genere un reporte que incluya:
+Aplicación CLI que procesa transacciones bancarias desde un archivo CSV y genera un reporte con balance final, transacción de mayor monto y conteo de transacciones por tipo.
 
-- **Balance Final:**  
-  Suma de los montos de las transacciones de tipo "Crédito" menos la suma de los montos de las transacciones de tipo "Débito".
+## Instrucciones de Ejecución
 
-- **Transacción de Mayor Monto:**  
-  Identificar el ID y el monto de la transacción con el valor más alto.
+### Requisitos
+- Python 3.7 o superior
 
-- **Conteo de Transacciones:**  
-  Número total de transacciones para cada tipo ("Crédito" y "Débito").
+### Ejecución
+```bash
+# Con archivo por defecto (data.csv)
+python transactions.py
 
----
+# Con archivo específico
+python transactions.py mi_archivo.csv
+```
 
-## Instrucciones
+No requiere instalación de dependencias externas.
 
-1. **Repositorio Base:**  
-   Clona o haz un fork del repositorio base disponible en:  
-   `https://github.com/codeableorg/interbank-academy-25`
+## Enfoque y Solución
 
-2. **Entrada de Datos:**  
-   La aplicación deberá leer un archivo CSV. Ejemplo de contenido:
+La aplicación lee un archivo CSV con transacciones bancarias y calcula:
+- Balance total (créditos - débitos)
+- Transacción con mayor monto
+- Cantidad de transacciones por tipo
 
-   ```
-   id,tipo,monto
-   1,Crédito,100.00
-   2,Débito,50.00
-   3,Crédito,200.00
-   4,Débito,75.00
-   5,Crédito,150.00
-   ```
+Se utiliza la librería `csv` para procesar el archivo y `Decimal` para manejar valores monetarios con precisión.
 
-3. **Salida del Programa:**  
-   La aplicación debe mostrar el reporte final en la terminal.  
-   Ejemplo de salida:
+## Estructura del Proyecto
 
-   ```
-   Reporte de Transacciones
-   ---------------------------------------------
-   Balance Final: 325.00
-   Transacción de Mayor Monto: ID 3 - 200.00
-   Conteo de Transacciones: Crédito: 3 Débito: 2
-   ```
-
-4. **Lenguaje de Programación:**  
-   Utiliza el lenguaje de tu preferencia. Opciones recomendadas:
-
-   - Python
-   - Java
-   - C#
-   - JavaScript (Node.js)
-
-5. **README del Proyecto:**  
-   Incluye un archivo `README.md` con la siguiente estructura:
-
-   - **Introducción:** Breve descripción del reto y su propósito.
-   - **Instrucciones de Ejecución:** Cómo instalar dependencias y ejecutar la aplicación.
-   - **Enfoque y Solución:** Lógica implementada y decisiones de diseño.
-   - **Estructura del Proyecto:** Archivos y carpetas principales.
-
-6. **Documentación y Calidad del Código:**
-   - Código bien documentado y fácil de leer.
-   - Comentarios explicando pasos clave y lógica del programa.
+```
+interbank-academy-25/
+├── data.csv          # Archivo de datos
+├── README.md         # Este archivo
+└── transactions.py   # Programa principal
+```
